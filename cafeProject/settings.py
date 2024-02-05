@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', 'cafe-project-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost', 'cafe-project-production.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic', # white noise config
+    'whitenoise.runserver_nostatic',  # white noise config
     'django.contrib.staticfiles',
     'tailwind',
     'tailwind_theme',
@@ -56,7 +56,7 @@ if DEBUG:
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # white noise config
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # white noise config
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
