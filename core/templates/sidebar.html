@@ -1,5 +1,7 @@
+{% load custom_tags %}
 {% load static %}
 <ul class="navbar-nav">
+    {% if user|has_group:'trainer' %}
     <li class="nav-item {% if request.path == '/trainer_dashboard/' %}active{% endif %}">
         <a class="nav-link" href="{% url 'trainer_dashboard' %}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -36,6 +38,7 @@
             <span class="nav-link-text ms-1">Upload List</span>
         </a>
     </li>
+    {% endif %}
     <li class="nav-item">
         <a class="nav-link " href="../pages/billing.html">
             <div
