@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -39,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Scroll back to the first image when the page is refreshed
+    scrollToCurrentImage();
 });
 
 
