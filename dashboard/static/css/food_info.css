@@ -1,0 +1,56 @@
+.image {
+    cursor: pointer;
+    margin-right: 10px;
+    max-height: 200px; /* Adjust this value as needed */
+    max-width: 200px; /* Adjust this value as needed */
+    overflow: hidden;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image.highlight {
+    border: 2px solid #596cff;
+    border-radius: 10px;
+}
+
+.image-gallery {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.images-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.image img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover; /* This will ensure that your images cover the whole area without distortion */
+    border-radius: 8px;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+

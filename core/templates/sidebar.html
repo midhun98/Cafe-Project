@@ -1,6 +1,7 @@
 {% load custom_tags %}
 {% load static %}
 <ul class="navbar-nav">
+    <!-- Trainer Sidebar start -->
     {% if user|has_group:'trainer' %}
     <li class="nav-item {% if request.path == '/trainer_dashboard/' %}active{% endif %}">
         <a class="nav-link" href="{% url 'trainer_dashboard' %}">
@@ -39,6 +40,32 @@
         </a>
     </li>
     {% endif %}
+
+    <!-- Trainer Sidebar End -->
+
+    <!-- Chef Sidebar start -->
+    {% if user|has_group:'chef' %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'chef_dashboard' %}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'food_info' %}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Food Details</span>
+        </a>
+    </li>
+
+
+    {% endif %}
+    <!-- Chef Sidebar End -->
+
     <li class="nav-item">
         <a class="nav-link " href="../pages/billing.html">
             <div

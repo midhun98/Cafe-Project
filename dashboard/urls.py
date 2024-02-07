@@ -2,8 +2,16 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    # Trainer Dashboard URLs Start
     path("trainer_dashboard/", TemplateView.as_view(template_name="trainer_dashboard/trainer_dashboard.html"), name='trainer_dashboard'),
     path("upload_recipe/", TemplateView.as_view(template_name="trainer_dashboard/upload_recipe.html"), name='upload_recipe'),
     path("recipe_list/", TemplateView.as_view(template_name="trainer_dashboard/recipe_list.html"), name='recipe_list'),
     path("bank_statement/", TemplateView.as_view(template_name="trainer_dashboard/bank_statement.html"), name='bank_statement'),
+    # Trainer Dashboard URLs End
+
+    # Chef Dashboard URLs Start
+    path("chef_dashboard/", TemplateView.as_view(template_name="chef_dashboard/chef_dashboard.html"), name='chef_dashboard'),
+    path("food_info/", TemplateView.as_view(template_name="chef_dashboard/food_info.html"), name='food_info'),
+    # Chef Dashboard URLs End
+
 ]
