@@ -1,0 +1,308 @@
+{% extends "dash_base.html" %}
+{% block content %}
+    {% load static %}
+    <title>
+        Upload Recipe
+    </title>
+    <style>
+    </style>
+    <link href="{% static "css/upload_recipe.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/food_info.css" %}" rel="stylesheet"/>
+
+    <nav aria-label="breadcrumb mt-4" class="ms-4">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Recipe Details</li>
+        </ol>
+        <h6 class="font-weight-bolder text-white mb-0 ml-4">Upload Recipe</h6>
+    </nav>
+    <div class="card shadow-lg mx-4 mt-4">
+        <div class="card-body p-3">
+            <div class="row gx-4">
+                <div class="col-auto">
+                    <div class="avatar avatar-xl position-relative">
+                        <img src="https://img.icons8.com/plasticine/100/jerry-smith.png" alt="profile_image"
+                             class="w-100 border-radius-lg shadow-sm">
+                    </div>
+                </div>
+                <div class="col-auto my-auto">
+                    <div class="h-100">
+                        <h5 class="mb-1">
+                            Hi Midhun
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <div class="card z-index-2 h-100">
+                    <div class="card-body p-3">
+                        <!-- Multi Step form start -->
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <h2 id="heading">Recipe info</h2>
+                                <form id="msform">
+                                    <!-- progressbar -->
+                                    <ul id="progressbar">
+                                        <li class="active" id="account"><strong>Food Information</strong></li>
+                                        <li id="personal"><strong>Ingredients</strong></li>
+                                        <li id="payment"><strong>Recipe</strong></li>
+                                        <li id="confirm"><strong>Accept/Reject</strong></li>
+                                    </ul>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                             role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <br> <!-- fieldsets -->
+                                    <fieldset style="text-align: left;">
+                                        <div class="form-card">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2 class="fs-title">Food Info:</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="text-uppercase text-sm">Food Category</p>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType" id="vegOption"
+                                                   value="veg">
+                                            <label class="form-check-label" for="vegOption">Vegetarian</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="nonVegOption" value="non-veg">
+                                            <label class="form-check-label" for="nonVegOption">Non-Vegetarian</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="veganOption" value="vegan">
+                                            <label class="form-check-label" for="veganOption">Vegan</label>
+                                        </div>
+                                        <hr class="horizontal dark">
+                                        <p class="text-uppercase text-sm">Food Info</p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="recipeName" class="form-label">Recipe Name:</label>
+                                                    <input id="recipeName" class="form-control" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="calories" class="form-control-label">Calories</label>
+                                                    <input id="calories" class="form-control" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="protein" class="form-control-label">Protein</label>
+                                                    <input id="protein" class="form-control" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="fat" class="form-control-label">Fat</label>
+                                                    <input id="fat" class="form-control" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="carbs" class="form-control-label">Carbs</label>
+                                                    <input id="carbs" class="form-control" type="text" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="horizontal dark">
+                                        <p class="text-uppercase text-sm">Images</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="uploadPlateDish" class="form-label">Upload Images for
+                                                        chef to plate the dish</label>
+                                                    <input class="form-control" type="file" id="uploadPlateDish"
+                                                           multiple/>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <p class="form-label">Images to plate the
+                                                        dish</p>
+                                                    <div class="image-gallery">
+                                                        <button type="button" class="prev-btn">&lt;</button>
+                                                        <div class="images-container">
+                                                            <div class="image">
+                                                                <img src="https://rb.gy/pw0t1x" alt="Image 1">
+                                                            </div>
+                                                            <div class="image">
+                                                                <img src="https://rb.gy/wsybn8" alt="Image 2">
+                                                            </div>
+                                                            <div class="image">
+                                                                <img src="https://rb.gy/ar9nq5" alt="Image 2">
+                                                            </div>
+                                                            <div class="image">
+                                                                <img src="https://rb.gy/5kikpq" alt="Image 2">
+                                                            </div>
+                                                            <div class="image">
+                                                                <img src="https://rb.gy/se3qp9" alt="Image 2">
+                                                            </div>
+                                                            <div class="image">
+                                                                <img src="https://shorturl.at/hmBI7"
+                                                                     alt="kawaii-broccoli"/>
+                                                            </div>
+                                                            <!-- Add more images as needed -->
+                                                        </div>
+                                                        <button type="button" class="next-btn">&gt;</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="horizontal dark">
+                                        <p class="text-uppercase text-sm">Food Type</p>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="breakfastOption" value="breakfast">
+                                            <label class="form-check-label" for="breakfastOption">Breakfast</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="lunchOption" value="lunch">
+                                            <label class="form-check-label" for="lunchOption">Lunch</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="dinnerOption" value="dinner">
+                                            <label class="form-check-label" for="dinnerOption">Dinner</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="snackOption" value="snack">
+                                            <label class="form-check-label" for="snackOption">Snack</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType" id="allOption"
+                                                   value="all">
+                                            <label class="form-check-label" for="allOption">All</label>
+                                        </div>
+                                        <input type="button" name="next" class="next action-button" value="Next"/>
+                                    </fieldset>
+
+                                    <fieldset style="text-align: left;">
+                                        <div class="form-card">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2 class="fs-title">Food Ingredients:</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="text-uppercase text-sm">Food Category</p>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="vegOptionIngredient" value="veg">
+                                            <label class="form-check-label" for="vegOptionIngredient">Vegetarian</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="nonVegOptionIngredient" value="non-veg">
+                                            <label class="form-check-label"
+                                                   for="nonVegOptionIngredient">Non-Vegetarian</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mealType"
+                                                   id="veganOptionIngredient" value="vegan">
+                                            <label class="form-check-label" for="veganOptionIngredient">Vegan</label>
+                                        </div>
+                                        <hr class="horizontal dark">
+
+                                        <input type="button" name="next" class="next action-button" value="Next"/>
+                                        <input type="button" name="previous" class="previous action-button-previous"
+                                               value="Previous"/>
+                                    </fieldset>
+                                    <fieldset style="text-align: left;">
+                                        <div class="form-card">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2 class="fs-title">Recipe Instructions:</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="cooking_instructions" class="text-sm">Cooking
+                                                Instructions</label>
+                                            <textarea class="form-control" id="cooking_instructions"
+                                                      rows="5"></textarea>
+                                        </div>
+                                        <hr class="horizontal dark">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="food_url" class="text-sm">Food URL</label>
+                                                <input id="food_url" class="form-control" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <hr class="horizontal dark">
+                                        <div class="mb-3">
+                                            <label for="food_suggestions" class="text-sm">Food Suggestions</label>
+                                            <textarea class="form-control" id="food_suggestions" rows="5"></textarea>
+                                        </div>
+
+                                        <input type="button" name="next" class="next action-button"
+                                               value="Submit"/> <input type="button" name="previous"
+                                                                       class="previous action-button-previous"
+                                                                       value="Previous"/>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2 class="fs-title">Finish:</h2>
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2>
+                                            <br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-3 text-center">
+                                                    <img width="100" height="100"
+                                                         src="https://img.icons8.com/cotton/512/checked--v2.png"
+                                                         alt="checked--v2" class="mx-auto d-block"/>
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-7 text-center">
+                                                    <h5 class="purple-text text-center">You Have Successfully Created
+                                                        Recipe</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Multi Step form End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{% static "js/upload_recipe.js" %}"></script>
+    <script src="{% static "js/food_info.js" %}"></script>
+
+{% endblock %}

@@ -1,0 +1,283 @@
+{% extends "dash_base.html" %}
+{% block content %}
+    {% load static %}
+    <title>
+        Chef Dashboard
+    </title>
+    <nav aria-label="breadcrumb mt-4" class="ms-4">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Chef Dashboard</li>
+        </ol>
+        {#        <h6 class="font-weight-bolder text-white mb-0 ml-4">Chef Dashboard</h6>#}
+    </nav>
+    <div class="container-fluid py-4">
+        <div class="row">
+
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="text-sm mb-0 font-weight-bold">Welcome to Chef Dashboard</p>
+                                    <h5 class="font-weight-bolder text-uppercase" id="user_name">
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="col-4 text-end">
+                                <div
+                                        class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                    <img class="" width="48" height="48"
+                                         src="https://img.icons8.com/doodle/48/bart-simpson.png" alt="bart-simpson"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content position-relative border-radius-lg ">
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-xl-4 mb-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="{% url 'food_info' %}">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="mx-auto icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg d-flex align-items-center justify-content-center">
+                                                <img src="https://img.icons8.com/fluency/48/merry-pie.png"
+                                                     class="opacity-10" alt="Icon">
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h5 class="mb-0">Merry Pie</h5>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">₹350.00</h5>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 mt-md-0 mt-4">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="mx-auto icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg d-flex align-items-center justify-content-center">
+                                                <img src="https://img.icons8.com/fluency/48/hot-dog--v2.png"
+                                                     class="opacity-10" alt="Icon">
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h5 class="mb-0">Hot Dog</h5>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">₹350.00</h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 mb-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="mx-auto icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg d-flex align-items-center justify-content-center">
+                                                <img src="https://img.icons8.com/fluency/48/pizza.png"
+                                                     class="opacity-10" alt="Icon">
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h5 class="mb-0">Pizza</h5>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">₹350.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-md-0 mt-4">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="mx-auto icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg d-flex align-items-center justify-content-center">
+                                                <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-snacks-vacation-planning-road-trip-flaticons-lineal-color-flat-icons.png"
+                                                     class="opacity-10" alt="Icon">
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Biscuit</h6>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">₹455.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="mx-auto icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg d-flex align-items-center justify-content-center">
+                                                <img src="https://img.icons8.com/fluency/48/street-food.png"
+                                                     class="opacity-10" alt="Icon">
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Bread and coke</h6>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">₹2000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header mx-4 p-3 text-center">
+                                            <div class="mx-auto icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg d-flex align-items-center justify-content-center">
+                                                <img src="https://img.icons8.com/external-nawicon-flat-nawicon/64/external-juice-grocery-nawicon-flat-nawicon.png"
+                                                     class="opacity-10" alt="Icon">
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-0 p-3 text-center">
+                                            <h6 class="text-center mb-0">Drinks</h6>
+                                            <hr class="horizontal dark my-3">
+                                            <h5 class="mb-0">₹2000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Customer Statement</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Frequent Customers
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        No.of orders
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://img.icons8.com/stickers/100/the-flash-head.png"
+                                                     class="avatar avatar-sm me-3"
+                                                     alt="user2">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Thomas</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">5</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="https://img.icons8.com/stickers/100/the-flash-head.png"
+                                                     class="avatar avatar-sm me-3"
+                                                     alt="user3">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Midhun</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">6</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Income Statement</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Date
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Total Commission
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Additional monthly Commission
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">30-01-2024</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Lunch</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Link</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">30-01-2024</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">Dinner</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">Link</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
