@@ -17,6 +17,7 @@ urlpatterns = [
     # Admin Dashboard URLs Start
     path("admin_dashboard/", TemplateView.as_view(template_name="admin_dashboard/admin_dashboard.html"), name='admin_dashboard'),
     path("admin_statements/", TemplateView.as_view(template_name="admin_dashboard/admin_statements.html"), name='admin_statements'),
+    path("admin_chef/", TemplateView.as_view(template_name="admin_dashboard/admin_chef.html"), name='admin_chef'),
 
     # Admin Dashboard URLs End
 
