@@ -10,4 +10,5 @@ urlpatterns = [
     path('login_view/', views.login_view, name='login_view'),
     path('api/otplesslogin/', views.otplesslogin, name='otplesslogin'),
     path('api/otplesssignup/', views.otplesssignup, name='otplesssignup'),
+    path('api/logout/', views.logout_api, name='logout-api'),
 ]

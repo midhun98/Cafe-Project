@@ -1,7 +1,7 @@
 import json
 
 from decouple import config
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -51,3 +51,9 @@ def otplesssignup(request):
             return JsonResponse({'status': 'failed', 'message': 'Phone number already registered'})
     else:
         return JsonResponse({'status': 'failed', 'message': 'Invalid request method'})
+
+
+@login_required
+def logout_api(request):
+    logout(request)
+    return render(request, 'signin.html')
