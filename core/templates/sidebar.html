@@ -3,68 +3,90 @@
 <ul class="navbar-nav">
     <!-- Trainer Sidebar start -->
     {% if user|has_group:'trainer' %}
-    <li class="nav-item {% if request.path == '/trainer_dashboard/' %}active{% endif %}">
-        <a class="nav-link" href="{% url 'trainer_dashboard' %}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-        </a>
-    </li>
-    <li class="nav-item {% if request.path == '/upload_recipe/' %}active{% endif %}">
-        <a class="nav-link" href="{% url 'upload_recipe' %}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/64/upload--v2.png"
-                     alt="upload--v2"/>
-            </div>
-            <span class="nav-link-text ms-1">Upload Recipe</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'bank_statement' %}">
-            <div
-                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Statements</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'recipe_list' %}">
-            <div
-                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <img width="20" height="20" src="https://img.icons8.com/ios/50/ingredients-list.png"
-                     alt="ingredients-list"/>
-            </div>
-            <span class="nav-link-text ms-1">Upload List</span>
-        </a>
-    </li>
+        <li class="nav-item {% if request.path == '/trainer_dashboard/' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'trainer_dashboard' %}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item {% if request.path == '/upload_recipe/' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'upload_recipe' %}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/64/upload--v2.png"
+                         alt="upload--v2"/>
+                </div>
+                <span class="nav-link-text ms-1">Upload Recipe</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'bank_statement' %}">
+                <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Statements</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'recipe_list' %}">
+                <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <img width="20" height="20" src="https://img.icons8.com/ios/50/ingredients-list.png"
+                         alt="ingredients-list"/>
+                </div>
+                <span class="nav-link-text ms-1">Upload List</span>
+            </a>
+        </li>
     {% endif %}
 
     <!-- Trainer Sidebar End -->
 
     <!-- Chef Sidebar start -->
     {% if user|has_group:'chef' %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'chef_dashboard' %}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'food_info' %}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Food Details</span>
-        </a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'chef_dashboard' %}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'food_info' %}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Food Details</span>
+            </a>
+        </li>
 
 
     {% endif %}
     <!-- Chef Sidebar End -->
+
+    <!-- admin Sidebar start -->
+    {% if user|has_group:'admin' %}
+        <li>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMenuOwner"
+               aria-expanded="false" aria-controls="collapseMenuOwner" id="">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Menu Owner</span>
+            </a>
+            <div class="collapse" id="collapseMenuOwner" aria-labelledby="headingOne" data-bs-parent="#menuAccordion">
+                <nav class="nav flex-column ms-4">
+                    <a class="nav-link" href="#">Menu Owner Info</a>
+                    <a class="nav-link" href="#">Recipies</a>
+                    <a class="nav-link" href="{% url 'admin_statements' %}">Statement</a>
+                </nav>
+            </div>
+        </li>
+    {% endif %}
+    <!-- admin Sidebar End -->
+
 
     <li class="nav-item">
         <a class="nav-link " href="../pages/billing.html">
@@ -99,3 +121,14 @@
         </a>
     </li>
 </ul>
+
+<script>
+    const sidenavLinks = document.querySelectorAll('#sidenav-main a.nav-link');
+
+    sidenavLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    });
+
+</script>

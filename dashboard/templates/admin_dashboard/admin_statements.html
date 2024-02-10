@@ -1,0 +1,136 @@
+{% extends "dash_base.html" %}
+{% block content %}
+    {% load static %}
+    <title>
+        Admin Statements
+    </title>
+    <nav aria-label="breadcrumb mt-4" class="ms-4">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Menu Owner</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Admin Statements</li>
+        </ol>
+        <h6 class="font-weight-bolder text-white mb-0 ml-4 mt-4">All Statements</h6>
+    </nav>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">Statements Table</h6>
+
+                        <div>
+                            <label for="filter_date_range" class="form-label" style="margin-left: 10px;"></label>
+                            <input type="text" class="form-control mb-4" id="filter_date_range" name="filter_date_range"
+                                   required placeholder="Enter Date Range">
+                        </div>
+                    </div>
+
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Name of trainer
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
+                                        Total Order
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Sales
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Profits
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Additional Commission
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="align-middle">
+                                        <div class="d-flex align-items-center ms-4">
+                                            <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/external-salad-healthy-food-wanicon-flat-wanicon.png"
+                                                 class="avatar avatar-sm me-3"
+                                                 alt="user3">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Kavi</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">100</p>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">10</p>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">200</p>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">100</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">
+                                        <div class="d-flex align-items-center ms-4">
+                                            <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/external-salad-healthy-food-wanicon-flat-wanicon.png"
+                                                 class="avatar avatar-sm me-3"
+                                                 alt="user3">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">Harish</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">100</p>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">10</p>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">200</p>
+                                    </td>
+                                    <td class="text-center align-middle"> <!-- Added align-middle class -->
+                                        <p class="text-xs font-weight-bold mb-0">100</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle"><h6 class="text-uppercase font-weight-bold ms-4">Total</h6>
+                                    </td>
+                                    <td class="text-center font-weight-bold">200</td>
+                                    <td class="text-center font-weight-bold">20</td>
+                                    <td class="text-center font-weight-bold">400</td>
+                                    <td class="text-center font-weight-bold">200</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#filter_date_range", {
+                mode: "range",
+                dateFormat: "d-m-Y",
+                placeholder: "Select Date Range"
+            });
+
+        });
+        // Reset the input field on page refresh
+        window.addEventListener('load', function () {
+            document.getElementById("filter_date_range").value = "";
+        });
+    </script>
+
+
+{% endblock %}
