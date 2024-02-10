@@ -1,0 +1,120 @@
+{% extends "dash_base.html" %}
+{% block content %}
+    {% load static %}
+    <title>
+        Product Cost
+    </title>
+    <nav aria-label="breadcrumb mt-4" class="ms-4">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Product Cost</li>
+        </ol>
+        {#        <h6 class="font-weight-bolder text-white mb-0 ml-4">Product Cost</h6>#}
+    </nav>
+    <div class="container-fluid py-4 mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <div class="d-flex align-items-center">
+                            <p class="mb-0">Product Costs</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="eggs-milk" class="form-control-label">Egg, milk and Milk Products</label>
+                                    <input class="form-control" id="eggs-milk" type="text" value="" placeholder="50g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fats-oil" class="form-control-label">Fats and Oil</label>
+                                    <input class="form-control" id="fats-oil" type="email" placeholder="5tb spoon">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="spices-herbs" class="form-control-label">Spices and Herbs</label>
+                                    <input class="form-control" id="spices-herbs" type="text" value="" placeholder="10g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="veggies-fruits" class="form-control-label">Vegetables and Fruits</label>
+                                    <input class="form-control" id="veggies-fruits" type="text" value="" placeholder="150g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cereals-pulses" class="form-control-label">Cereals and Pulses</label>
+                                    <input class="form-control" id="cereals-pulses" type="text" value="" placeholder="100g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="meat-seafood" class="form-control-label">Meat and SeaFood</label>
+                                    <input class="form-control" id="meat-seafood" type="text" value="" placeholder="150g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="sugar-products" class="form-control-label">Sugar Products</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <small class="text-muted">White sugar, brown sugar, honey</small> <!-- Sub-label -->
+                                        </div>
+                                    </div>
+                                    <input class="form-control" type="text" id="sugar-products" value="" placeholder="20g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="dry-fruits" class="form-control-label">Dry Fruits</label>
+                                    <input class="form-control" id="dry-fruits" type="text" value="" placeholder="150g">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="other-products" class="form-control-label">Other Products</label>
+                                    <input class="form-control" id="other-products" type="text" value="" placeholder="150g">
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="horizontal dark">
+                        <p class="text-sm">Fix</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inflation" class="form-control-label">Inflation</label>
+                                    <input class="form-control" id="inflation" type="number" value="" placeholder="10%">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cooking-cost" class="form-control-label">Cooking Cost</label>
+                                    <input class="form-control" id="cooking-cost" type="number" value="" placeholder="10%">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="profit" class="form-control-label">Profit</label>
+                                    <input class="form-control" id="profit" type="number" value="" placeholder="50%">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="commission" class="form-control-label">Commission to Menu Owner</label>
+                                    <input class="form-control" id="commission" type="number" value="" placeholder="10%">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
