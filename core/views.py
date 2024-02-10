@@ -35,3 +35,19 @@ def otplesslogin(request):
         except User.DoesNotExist:
             return JsonResponse({'status': 'failed', 'message': 'User not found'})
     return JsonResponse({'status': 'failed', 'message': 'Invalid request method'})
+
+
+def otplesssignup(request):
+    if request.method == 'POST':
+        body = json.loads(request.body)
+        phone_number = body.get('waNumber')
+        phone_number = phone_number[2:]
+        user, created = User.objects.get_or_create(phone_number=phone_number)
+        if created:
+            # If user is created, return success response
+            return JsonResponse({'status': 'success', 'message': 'Account created successfully'})
+        else:
+            # If user already exists, return failure response
+            return JsonResponse({'status': 'failed', 'message': 'Phone number already registered'})
+    else:
+        return JsonResponse({'status': 'failed', 'message': 'Invalid request method'})

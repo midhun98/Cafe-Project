@@ -9,5 +9,5 @@ urlpatterns = [
     path('api/get_current_user/', views.get_current_user, name='logout-api'),
     path('login_view/', views.login_view, name='login_view'),
     path('api/otplesslogin/', views.otplesslogin, name='otplesslogin'),
-
+    path('api/otplesssignup/', views.otplesssignup, name='otplesssignup'),
 ]

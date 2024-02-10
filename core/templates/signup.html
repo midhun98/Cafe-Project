@@ -45,6 +45,10 @@
                     <div class="card-header text-center pt-4">
                         <h5>Register</h5>
                     </div>
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <div id="otpless-login-page">
+                        <script type="text/javascript" src="https://otpless.com/auth.js" id="{{ cid }}"></script>
+                    </div>
                     <div class="card-body">
                         <form role="form">
                             <div class="form-check form-check-info text-start">
@@ -54,12 +58,8 @@
                                     Conditions</a>
                                 </label>
                             </div>
-                            <div class="text-center">
-                                <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
-                            </div>
                             <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'signin-page' %}"
-                                                                                     class="text-dark font-weight-bolder">Sign
-                                in</a></p>
+                                                                                     class="text-dark font-weight-bolder">Sign in</a></p>
                         </form>
                     </div>
                 </div>
@@ -118,6 +118,9 @@
         </div>
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static "js/signup.js" %}"></script>
 </body>
 
 </html>
