@@ -17,6 +17,11 @@
     <link href="{% static "assets/css/nucleo-svg.css" %}" rel="stylesheet"/>
     <!-- CSS Files -->
     <link id="pagestyle" href="{% static "assets/css/argon-dashboard.css" %}" rel="stylesheet"/>
+    <style>
+        #iconNavbarSidenav {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -34,7 +39,7 @@
     </div>
     <hr class="horizontal dark mt-0">
 
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+    <div class="collapse navbar-collapse  w-auto h-auto" id="sidenav-collapse-main">
         {% block sidebar %}
             {% include "sidebar.html" %}
         {% endblock sidebar %}

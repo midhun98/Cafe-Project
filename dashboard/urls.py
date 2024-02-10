@@ -14,4 +14,10 @@ urlpatterns = [
     path("food_info/", TemplateView.as_view(template_name="chef_dashboard/food_info.html"), name='food_info'),
     # Chef Dashboard URLs End
 
+    # Admin Dashboard URLs Start
+    path("admin_dashboard/", TemplateView.as_view(template_name="admin_dashboard/admin_dashboard.html"), name='admin_dashboard'),
+    path("admin_statements/", TemplateView.as_view(template_name="admin_dashboard/admin_statements.html"), name='admin_statements'),
+
+    # Admin Dashboard URLs End
+
 ]
