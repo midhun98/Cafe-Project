@@ -59,7 +59,8 @@
                     <li class="nav-item d-flex align-items-center">
                         <a class="nav-link text-white font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Sign out</span>
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                            <span class="d-sm-inline d-none" style="cursor: pointer"  id="logout-button">Sign out</span>
                         </a>
                     </li>
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -301,7 +302,7 @@
 {#    <script async defer src="https://buttons.github.io/buttons.js"></script>#}
 <script src="{% static  "assets/js/argon-dashboard.min.js" %}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{% static "js/dash_base.js" %}"></script>
 
 </body>
