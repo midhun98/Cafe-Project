@@ -57,10 +57,10 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="nav-link text-white font-weight-bold px-0">
+                        <a class="nav-link text-white font-weight-bold px-0" id="logout-button-container">
                             <i class="fa fa-user me-sm-1"></i>
                             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                            <span class="d-sm-inline d-none" style="cursor: pointer"  id="logout-button">Sign out</span>
+                            <span style="cursor: pointer" id="logout-button">Sign out</span>
                         </a>
                     </li>
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
