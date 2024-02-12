@@ -46,11 +46,10 @@
                         <h5>Register</h5>
                     </div>
                     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                    <div id="signUpCarousel" class="carousel carousel-dark slide">
                         <div class="carousel-indicators mt-8">
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                                    aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#signUpCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#signUpCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -59,30 +58,33 @@
                                         <div class="col">
                                             <div class="row">
                                                 <div class="col">
-                                                    <label for="exampleInputEmail1" class="text-sm">First name</label>
-                                                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                                                    <label for="first_name" class="text-sm">First name</label>
+                                                    <input type="text" class="form-control" id="first_name" placeholder="First name"
+                                                           aria-label="First name">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <label for="exampleInputEmail1" class="text-sm mt-4">Last name</label>
-                                                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                                                    <label for="last_name" class="text-sm mt-4">Last name</label>
+                                                    <input type="text" class="form-control" id="last_name" placeholder="Last name"
+                                                           aria-label="Last name">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
                                                     <label class="text-sm mt-4">Sign Up as</label>
                                                     <div class="form-check">
-                                                        <input class="form-check-input ms-1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Menu Owner / Trainer
-                                                        </label>
+                                                        <input class="form-check-input ms-1" type="radio" name="flexRadioDefault"
+                                                               id="trainer" value="trainer">
+                                                        <label class="form-check-label" for="trainer">Menu Owner / Trainer</label>
                                                     </div>
+
                                                     <div class="form-check">
-                                                        <input class="form-check-input ms-1" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                                               checked>
-                                                        <label class="form-check-label" for="flexRadioDefault2">Client</label>
+                                                        <input class="form-check-input ms-1" type="radio" name="flexRadioDefault" id="client"
+                                                               value="client" checked>
+                                                        <label class="form-check-label" for="client">Client</label>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -95,11 +97,11 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#signUpCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#signUpCarousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>

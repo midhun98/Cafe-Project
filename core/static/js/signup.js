@@ -1,6 +1,14 @@
 let csrfToken = document.querySelector('[name="csrfmiddlewaretoken"]').value;
 
 function otpless(otplessUser) {
+    // Collect first name, last name, and radio box choice from the form
+    let firstName = $('#first_name').val();
+    let lastName = $('#last_name').val();
+    let signUpAs = document.querySelector('input[name="flexRadioDefault"]:checked').value;
+    otplessUser.first_name = firstName;
+    otplessUser.last_name = lastName;
+    otplessUser.sign_up_as = signUpAs;
+
     $.ajax({
         type: "POST",
         url: "/api/otplesssignup/",
