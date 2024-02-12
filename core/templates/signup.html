@@ -46,7 +46,7 @@
                         <h5>Register</h5>
                     </div>
                     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div id="carouselExampleDark" class="carousel carousel-dark slide">
                         <div class="carousel-indicators mt-8">
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
                                     aria-label="Slide 1"></button>
@@ -63,10 +63,26 @@
                                                     <input type="text" class="form-control" placeholder="First name" aria-label="First name">
                                                 </div>
                                             </div>
-                                            <div class="row mt-4">
+                                            <div class="row">
                                                 <div class="col">
                                                     <label for="exampleInputEmail1" class="text-sm">Last name</label>
                                                     <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="text-sm mt-4">Sign Up as</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Menu Owner/Trainer
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                                               checked>
+                                                        <label class="form-check-label" for="flexRadioDefault2">Client</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
