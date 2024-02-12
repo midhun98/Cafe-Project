@@ -63,6 +63,21 @@ document.addEventListener("DOMContentLoaded", function () {
     var lastNameWarning = document.getElementById("lastNameWarning");
     var signupOptionWarning = document.getElementById("signupOptionWarning");
 
+    // Reset input fields and hide error messages
+    function resetFields() {
+        firstNameInput.value = "";
+        lastNameInput.value = "";
+        firstNameWarning.style.display = "none";
+        lastNameWarning.style.display = "none";
+        signupOptionWarning.style.display = "none";
+
+        // Uncheck radio buttons
+        var radioButtons = document.querySelectorAll('input[name="flexRadioDefault"]');
+        radioButtons.forEach(function (radioButton) {
+            radioButton.checked = false;
+        });
+    }
+
     // Function to check if all inputs are filled
     function checkInputs() {
         var firstNameFilled = firstNameInput.value.trim() !== "";
@@ -114,6 +129,9 @@ document.addEventListener("DOMContentLoaded", function () {
             signupOptionWarning.style.display = "none";
         });
     });
+
+    // Reset fields and hide error messages when the page is refreshed
+    resetFields();
 
     signUpCarousel.addEventListener("slid.bs.carousel", function (event) {
         var activeItem = signUpCarousel.querySelector(".carousel-item.active");
