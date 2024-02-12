@@ -4,6 +4,7 @@ from decouple import config
 from django.contrib.auth import get_user_model, logout
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from django.http import JsonResponse
 from django.shortcuts import render
 
@@ -41,14 +42,22 @@ def otplesssignup(request):
     if request.method == 'POST':
         body = json.loads(request.body)
         phone_number = body.get('waNumber')
+        first_name = body.get('first_name')
+        last_name = body.get('last_name')
+        group = body.get('sign_up_as')
         phone_number = phone_number[2:]
-        user, created = User.objects.get_or_create(phone_number=phone_number)
-        if created:
+        try:
+            user = User.objects.get(phone_number=phone_number)
+            # If user already exists, return failure response
+            if user:
+                return JsonResponse({'status': 'failed', 'message': 'Phone number already registered'})
+        except User.DoesNotExist:
+            # If user doesn't exist, create a new user
+            user = User.objects.create_user(phone_number=phone_number, first_name=first_name, last_name=last_name)
+            group = Group.objects.get(name=group).id
+            user.groups.add(group)
             # If user is created, return success response
             return JsonResponse({'status': 'success', 'message': 'Account created successfully'})
-        else:
-            # If user already exists, return failure response
-            return JsonResponse({'status': 'failed', 'message': 'Phone number already registered'})
     else:
         return JsonResponse({'status': 'failed', 'message': 'Invalid request method'})
 
