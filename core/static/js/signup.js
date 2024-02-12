@@ -61,14 +61,37 @@ document.addEventListener("DOMContentLoaded", function () {
     var lastNameInput = document.getElementById("last_name");
     var firstNameWarning = document.getElementById("firstNameWarning");
     var lastNameWarning = document.getElementById("lastNameWarning");
+    var signupOptionWarning = document.getElementById("signupOptionWarning");
 
-    // Function to check if both first name and last name are filled
+    // Function to check if all inputs are filled
     function checkInputs() {
         var firstNameFilled = firstNameInput.value.trim() !== "";
         var lastNameFilled = lastNameInput.value.trim() !== "";
+        var signupOptionChecked = document.querySelector('input[name="flexRadioDefault"]:checked');
 
-        // Return true if both fields are filled, otherwise false
-        return firstNameFilled && lastNameFilled;
+        // Display error message if first name is not filled
+        if (!firstNameFilled) {
+            firstNameWarning.style.display = "block";
+        } else {
+            firstNameWarning.style.display = "none";
+        }
+
+        // Display error message if last name is not filled
+        if (!lastNameFilled) {
+            lastNameWarning.style.display = "block";
+        } else {
+            lastNameWarning.style.display = "none";
+        }
+
+        // Display error message if signup option is not selected
+        if (!signupOptionChecked) {
+            signupOptionWarning.style.display = "block";
+        } else {
+            signupOptionWarning.style.display = "none";
+        }
+
+        // Return true if all fields are filled and signup option is selected, otherwise false
+        return firstNameFilled && lastNameFilled && signupOptionChecked;
     }
 
     // Add input event listeners to first name and last name input fields
@@ -82,6 +105,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (lastNameInput.value.trim() !== "") {
             lastNameWarning.style.display = "none";
         }
+    });
+
+    // Add event listeners to the radio buttons
+    var radioButtons = document.querySelectorAll('input[name="flexRadioDefault"]');
+    radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener("change", function () {
+            signupOptionWarning.style.display = "none";
+        });
     });
 
     signUpCarousel.addEventListener("slid.bs.carousel", function (event) {
@@ -98,20 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     signUpCarousel.addEventListener("slide.bs.carousel", function (event) {
         if (!checkInputs()) {
-            if (!firstNameInput.value.trim()) {
-                firstNameWarning.style.display = "block";
-            }
-
-            if (!lastNameInput.value.trim()) {
-                lastNameWarning.style.display = "block";
-            }
-
-            // Prevents the slide transition if fields are empty
+            // Prevents the slide transition if fields are empty or signup option is not selected
             event.preventDefault();
         } else {
-            // Both fields are filled, hide any previous warning messages
+            // All inputs are filled and signup option is selected, hide any previous warning messages
             firstNameWarning.style.display = "none";
             lastNameWarning.style.display = "none";
+            signupOptionWarning.style.display = "none";
         }
     });
 });
