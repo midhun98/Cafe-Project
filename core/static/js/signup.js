@@ -62,6 +62,28 @@ document.addEventListener("DOMContentLoaded", function () {
     var firstNameWarning = document.getElementById("firstNameWarning");
     var lastNameWarning = document.getElementById("lastNameWarning");
 
+    // Function to check if both first name and last name are filled
+    function checkInputs() {
+        var firstNameFilled = firstNameInput.value.trim() !== "";
+        var lastNameFilled = lastNameInput.value.trim() !== "";
+
+        // Return true if both fields are filled, otherwise false
+        return firstNameFilled && lastNameFilled;
+    }
+
+    // Add input event listeners to first name and last name input fields
+    firstNameInput.addEventListener("input", function () {
+        if (firstNameInput.value.trim() !== "") {
+            firstNameWarning.style.display = "none";
+        }
+    });
+
+    lastNameInput.addEventListener("input", function () {
+        if (lastNameInput.value.trim() !== "") {
+            lastNameWarning.style.display = "none";
+        }
+    });
+
     signUpCarousel.addEventListener("slid.bs.carousel", function (event) {
         var activeItem = signUpCarousel.querySelector(".carousel-item.active");
 
@@ -74,21 +96,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    nextButton.addEventListener("click", function (event) {
-        if (!firstNameInput.value.trim() || !lastNameInput.value.trim()) {
+    signUpCarousel.addEventListener("slide.bs.carousel", function (event) {
+        if (!checkInputs()) {
             if (!firstNameInput.value.trim()) {
                 firstNameWarning.style.display = "block";
-            } else {
-                firstNameWarning.style.display = "none";
             }
 
             if (!lastNameInput.value.trim()) {
                 lastNameWarning.style.display = "block";
-            } else {
-                lastNameWarning.style.display = "none";
             }
 
-            event.preventDefault(); // Prevents the carousel from advancing
+            // Prevents the slide transition if fields are empty
+            event.preventDefault();
         } else {
             // Both fields are filled, hide any previous warning messages
             firstNameWarning.style.display = "none";
@@ -96,5 +115,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
