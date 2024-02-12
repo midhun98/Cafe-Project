@@ -51,3 +51,50 @@ function otpless(otplessUser) {
     });
     console.log(JSON.stringify(otplessUser));
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    var signUpCarousel = document.getElementById("signUpCarousel");
+    var prevButton = signUpCarousel.querySelector(".carousel-control-prev");
+    var nextButton = signUpCarousel.querySelector(".carousel-control-next");
+
+    var firstNameInput = document.getElementById("first_name");
+    var lastNameInput = document.getElementById("last_name");
+    var firstNameWarning = document.getElementById("firstNameWarning");
+    var lastNameWarning = document.getElementById("lastNameWarning");
+
+    signUpCarousel.addEventListener("slid.bs.carousel", function (event) {
+        var activeItem = signUpCarousel.querySelector(".carousel-item.active");
+
+        if (activeItem.classList.contains("my-2")) {
+            prevButton.style.display = "block";
+            nextButton.style.display = "none";
+        } else {
+            prevButton.style.display = "none";
+            nextButton.style.display = "block";
+        }
+    });
+
+    nextButton.addEventListener("click", function (event) {
+        if (!firstNameInput.value.trim() || !lastNameInput.value.trim()) {
+            if (!firstNameInput.value.trim()) {
+                firstNameWarning.style.display = "block";
+            } else {
+                firstNameWarning.style.display = "none";
+            }
+
+            if (!lastNameInput.value.trim()) {
+                lastNameWarning.style.display = "block";
+            } else {
+                lastNameWarning.style.display = "none";
+            }
+
+            event.preventDefault(); // Prevents the carousel from advancing
+        } else {
+            // Both fields are filled, hide any previous warning messages
+            firstNameWarning.style.display = "none";
+            lastNameWarning.style.display = "none";
+        }
+    });
+});
+
+
