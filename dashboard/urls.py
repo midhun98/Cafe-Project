@@ -21,4 +21,8 @@ urlpatterns = [
     path("product_cost/", TemplateView.as_view(template_name="admin_dashboard/product_cost.html"), name='product_cost'),
     # Admin Dashboard URLs End
 
+    # Client Dashboard URLs Start
+    path("client_dashboard/", TemplateView.as_view(template_name="client_dashboard/client_dashboard.html"), name='client_dashboard'),
+    # Client Dashboard URLs End
+
 ]
