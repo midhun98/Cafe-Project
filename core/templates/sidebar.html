@@ -110,6 +110,21 @@
     {% endif %}
     <!-- admin Sidebar End -->
 
+    <!-- client Sidebar start -->
+    {% if user|has_group:'client' %}
+        <li class="nav-item">
+            <a class="nav-link " href="{% url 'client_dashboard' %}">
+                <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <img width="20" height="20" src="https://img.icons8.com/ios/50/home--v1.png"
+                         alt="box-important--v1"/>
+                </div>
+                <span class="nav-link-text ms-1">Home</span>
+            </a>
+        </li>
+
+    {% endif %}
+    <!-- admin Sidebar End -->
 
     <li class="nav-item">
         <a class="nav-link " href="">
