@@ -23,6 +23,7 @@ urlpatterns = [
 
     # Client Dashboard URLs Start
     path("client_dashboard/", TemplateView.as_view(template_name="client_dashboard/client_dashboard.html"), name='client_dashboard'),
+    path("all_foods/", TemplateView.as_view(template_name="client_dashboard/search_foods.html"), name='search_foods'),
     # Client Dashboard URLs End
 
 ]
