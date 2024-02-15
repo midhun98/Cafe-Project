@@ -1,0 +1,112 @@
+{% extends "dash_base.html" %}
+{% block content %}
+    {% load static %}
+    <title>
+        Food Orders
+    </title>
+    <style>
+        .custom-image-size {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+
+    </style>
+    <nav aria-label="breadcrumb mt-4" class="ms-4">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Food Orders</li>
+        </ol>
+        <h6 class="font-weight-bolder text-white mb-0 ml-4">All Orders</h6>
+    </nav>
+    <main class="main-content position-relative border-radius-lg ">
+        <div class="container-fluid py-4">
+            <div class="tab-content col-md-10 mx-auto" id="myTabContent">
+                <div class="tab-pane fade show active" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+                    <div class="order-body">
+                        <div class="pb-3">
+                            <div class="p-3 rounded shadow-sm bg-white">
+                                <div class="d-flex border-bottom pb-3">
+                                    <div class="text-muted mr-3">
+                                        <img alt="#" src="https://t.ly/DJsc0"
+                                             class="img-fluid order_img rounded custom-image-size">
+                                    </div>
+                                    <div class="ms-2">
+                                        <p class="mb-0 font-weight-bold"><a href="" class="text-dark">Q's Cafe</a></p>
+                                        <p class="mb-0">Coimbatore</p>
+                                        <p>ORDER #321DERS</p>
+                                        <p class="mb-0 small"><a href="">View Details</a></p>
+                                    </div>
+                                    <div class="ms-auto"> <!-- Using ms-auto to align to the right -->
+                                        <p class="bg-success text-white py-1 px-2 rounded small mb-1">Delivered</p>
+                                        <p class="small font-weight-bold text-center"><i class="feather-clock"></i> 06/04/2020</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex pt-3 align-items-center justify-content-between">
+                                    <div class="small mr-auto">
+                                        <p class="text- font-weight-bold mb-0">Kesar Sweet x 1</p>
+                                        <p class="text- font-weight-bold mb-0">Gulab Jamun x 4</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <div class="text-muted small">Total Payment<br>
+                                                <span class="text-dark font-weight-bold">$12.74</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-right ms-2">
+                                            <a href="" class="btn btn-primary px-3">Reorder</a>
+                                            <a href="" class="btn btn-outline-primary px-3">Help</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content col-md-10 mx-auto" id="myTabContent">
+                <div class="tab-pane fade show active" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+                    <div class="order-body">
+                        <div class="pb-3">
+                            <div class="p-3 rounded shadow-sm bg-white">
+                                <div class="d-flex border-bottom pb-3">
+                                    <div class="text-muted mr-3">
+                                        <img alt="#" src="https://t.ly/DJsc0"
+                                             class="img-fluid order_img rounded custom-image-size">
+                                    </div>
+                                    <div class="ms-2">
+                                        <p class="mb-0 font-weight-bold"><a href="" class="text-dark">Q's Cafe</a></p>
+                                        <p class="mb-0">Coimbatore</p>
+                                        <p>ORDER #321DERS</p>
+                                        <p class="mb-0 small"><a href="">View Details</a></p>
+                                    </div>
+                                    <div class="ms-auto"> <!-- Using ms-auto to align to the right -->
+                                        <p class="bg-success text-white py-1 px-2 rounded small mb-1">Delivered</p>
+                                        <p class="small font-weight-bold text-center"><i class="feather-clock"></i> 06/04/2020</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex pt-3 align-items-center justify-content-between">
+                                    <div class="small mr-auto">
+                                        <p class="text- font-weight-bold mb-0">Kesar Sweet x 1</p>
+                                        <p class="text- font-weight-bold mb-0">Gulab Jamun x 4</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <div class="text-muted small">Total Payment<br>
+                                                <span class="text-dark font-weight-bold">$12.74</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-right ms-2">
+                                            <a href="" class="btn btn-primary px-3">Reorder</a>
+                                            <a href="" class="btn btn-outline-primary px-3">Help</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
