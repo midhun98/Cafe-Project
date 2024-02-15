@@ -1,0 +1,173 @@
+{% extends "dash_base.html" %}
+{% block content %}
+    {% load static %}
+    <title>
+        Search Foods
+    </title>
+
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+
+        .nav-pills .nav-link.active {
+            position: relative;
+        }
+
+        .nav-pills .nav-link.active::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0; /* Adjusted to start from the left edge of the tab */
+            width: 5px; /* Width of the vertical bar */
+            height: 100%;
+            border-radius: 20%;
+            background-color: #5e72e4; /* Color of the vertical bar */
+        }
+    </style>
+
+    <nav aria-label="breadcrumb mt-4" class="ms-4">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Foods</li>
+        </ol>
+        <h6 class="font-weight-bolder text-white mb-0 ml-4">All Food</h6>
+        <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Filters
+        </button>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Filters</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Vertical Tabs -->
+                        <div class="col-3">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-tab-0" data-bs-toggle="pill" href="#v-pills-tabpanel-0" role="tab"
+                                   aria-controls="v-pills-tabpanel-0" aria-selected="true">Pricing</a>
+                                <a class="nav-link" id="v-pills-tab-1" data-bs-toggle="pill" href="#v-pills-tabpanel-1" role="tab"
+                                   aria-controls="v-pills-tabpanel-1" aria-selected="false">Food Category</a>
+                                <a class="nav-link" id="v-pills-tab-2" data-bs-toggle="pill" href="#v-pills-tabpanel-2" role="tab"
+                                   aria-controls="v-pills-tabpanel-2" aria-selected="false">Protein Content</a>
+                            </div>
+                        </div>
+                        <!-- Tab Content -->
+                        <div class="col-9">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-tabpanel-0" role="tabpanel" aria-labelledby="v-pills-tab-0">Tab 1
+                                    selected
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-tabpanel-1" role="tabpanel" aria-labelledby="v-pills-tab-1">Tab 2 selected
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-tabpanel-2" role="tabpanel" aria-labelledby="v-pills-tab-2">Tab 3 selected
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="applyFilterBtn">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content placeholders -->
+    <div id="contentNav1" class="filter-content" style="display: none;">
+        <p>You are Filter 1</p>
+    </div>
+    <div id="contentNav2" class="filter-content" style="display: none;">
+        <p>You are Filter 2</p>
+    </div>
+    <div id="contentNav3" class="filter-content" style="display: none;">
+        <p>You are Filter 3</p>
+    </div>
+
+    <main class="main-content position-relative border-radius-lg ">
+        <div class="container-fluid py-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <!-- Display one card per row on small screens, two cards per row on medium screens, and three cards per row on large screens -->
+                <div class="col mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://t.ly/QE0aW" alt="">
+                        <div class="card-body">
+                            <h4>
+                                Veg Curry
+                            </h4>
+                            <p class="mb-2 text-sm">500cals • 10gms Protein •10g Fats </p>
+                            <p>
+                                Veg Curry.
+                            </p>
+                            <a href="" class="text-primary icon-move-right">More
+                                <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://t.ly/bEhfB" alt="">
+                        <div class="card-body">
+                            <h4>
+                                Paneer Masala
+                            </h4>
+                            <p class="mb-2 text-sm">500cals • 10gms Protein •10g Fats </p>
+                            <p>
+                                Paneer Masala .
+                            </p>
+                            <a href="" class="text-primary icon-move-right">More
+                                <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mt-4">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="https://t.ly/rRSKI" alt="">
+                        <div class="card-body">
+                            <h4>
+                                Club Sandwich
+                            </h4>
+                            <p class="mb-2 text-sm">500cals • 10gms Protein •10g Fats </p>
+                            <p>
+                                Club Sandwich with the choice of fillings.
+                            </p>
+                            <a href="" class="text-primary icon-move-right">More
+                                <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-4">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="https://t.ly/Bu1Zw" alt="">
+                        <div class="card-body">
+                            <h4>
+                                Samosa
+                            </h4>
+                            <p class="mb-2 text-sm">500cals • 10gms Protein •10g Fats </p>
+                            <p>
+                                Healthy Samosa made with Wheat and air fried.
+                            </p>
+                            <a href="" class="text-primary icon-move-right">More
+                                <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
