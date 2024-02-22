@@ -4,6 +4,9 @@
     <title>
         Search Foods
     </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
         .card-img-top {
@@ -63,12 +66,42 @@
                         <!-- Tab Content -->
                         <div class="col-9">
                             <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-tabpanel-0" role="tabpanel" aria-labelledby="v-pills-tab-0">Tab 1
-                                    selected
+                                <div class="tab-pane fade show active" id="v-pills-tabpanel-0" role="tabpanel" aria-labelledby="v-pills-tab-0">
+                                    <label for="priceRange" class="form-label">Price Range:</label>
+                                    <input type="text" id="priceRange" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                    <div id="slider-range-price"></div>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-tabpanel-1" role="tabpanel" aria-labelledby="v-pills-tab-1">Tab 2 selected
+                                <div class="tab-pane fade" id="v-pills-tabpanel-1" role="tabpanel" aria-labelledby="v-pills-tab-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Veg
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Non Veg
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Vegan
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-tabpanel-2" role="tabpanel" aria-labelledby="v-pills-tab-2">Tab 3 selected
+                                <div class="tab-pane fade" id="v-pills-tabpanel-2" role="tabpanel" aria-labelledby="v-pills-tab-2">
+                                    <div>
+                                        <label for="proteinRange" class="form-label">Protein Range:</label>
+                                        <input type="text" id="proteinRange" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <div id="slider-range-protein"></div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <label for="fatRange" class="form-label">Fat Range:</label>
+                                        <input type="text" id="fatRange" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                        <div id="slider-range-fat"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -169,5 +202,57 @@
             </div>
         </div>
     </main>
+    <script>
+        $(document).ready(function () {
+            var $priceRangeSlider = $("#slider-range-price");
+            var $priceRangeInput = $("#priceRange");
+
+            $priceRangeSlider.slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [75, 300],
+                slide: function (event, ui) {
+                    $priceRangeInput.val("₹" + ui.values[0] + " - ₹" + ui.values[1]);
+                }
+            });
+
+            // Initialize the price range input with the default slider values
+            $priceRangeInput.val("₹" + $priceRangeSlider.slider("values", 0) + " - ₹" + $priceRangeSlider.slider("values", 1));
+
+            var $proteinRangeSlider = $("#slider-range-protein");
+            var $proteinRangeInput = $("#proteinRange");
+
+            $proteinRangeSlider.slider({
+                range: true,
+                min: 0,
+                max: 100,
+                values: [20, 80],
+                slide: function (event, ui) {
+                    $proteinRangeInput.val(ui.values[0] + "g - " + ui.values[1] + "g");
+                }
+            });
+
+            // Initialize the protein range input with the default slider values
+            $proteinRangeInput.val($proteinRangeSlider.slider("values", 0) + "g - " + $proteinRangeSlider.slider("values", 1) + "g")
+
+            var $fatRangeSlider = $("#slider-range-fat");
+            var $fatRangeInput = $("#fatRange");
+
+            $fatRangeSlider.slider({
+                range: true,
+                min: 0,
+                max: 100,
+                values: [20, 80],
+                slide: function (event, ui) {
+                    $fatRangeInput.val(ui.values[0] + "g - " + ui.values[1] + "g");
+                }
+            });
+
+            // Initialize the protein range input with the default slider values
+            $fatRangeInput.val($fatRangeSlider.slider("values", 0) + "g - " + $fatRangeSlider.slider("values", 1) + "g");
+        });
+
+    </script>
 
 {% endblock %}
