@@ -20,6 +20,7 @@ urlpatterns = [
     path("admin_chef/", TemplateView.as_view(template_name="admin_dashboard/admin_chef.html"), name='admin_chef'),
     path("product_cost/", TemplateView.as_view(template_name="admin_dashboard/product_cost.html"), name='product_cost'),
     path("menu_owner_info/", TemplateView.as_view(template_name="admin_dashboard/admin_menu_owner_info.html"), name='menu_owner_info'),
+    path("recipie_info/", TemplateView.as_view(template_name="admin_dashboard/admin_recipie_info.html"), name='recipie_info'),
     # Admin Dashboard URLs End
 
     # Client Dashboard URLs Start
