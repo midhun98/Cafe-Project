@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'core',
     'dashboard',
     'rest_framework',
+    'trainer',
 ]
 
 TAILWIND_APP_NAME = 'tailwind_theme'
