@@ -6,7 +6,7 @@ from trainer import utils
 
 # Create your models here.
 class Food(models.Model):
-    recipe_name = models.CharField(max_length=100)
+    recipe_name = models.CharField(max_length=100, blank=False, null=False)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='foods')
     food_category = models.IntegerField(choices=utils.food_category, default=utils.VEG)
     meal_category = models.IntegerField(choices=utils.meal_category, default=utils.ALL)
