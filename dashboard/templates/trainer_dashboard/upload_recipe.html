@@ -44,6 +44,7 @@
                                 <h2 id="heading">Create Recipe</h2>
                                 <p>Fill all form field to go to next step</p>
                                 <form id="msform">
+                                    {% csrf_token %}
                                     <!-- progressbar -->
                                     <ul id="progressbar">
                                         <li class="active" id="account"><strong>Food Information</strong></li>
@@ -70,17 +71,17 @@
 
                                         <p class="text-uppercase text-sm">Food Category</p>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="vegOption" value="veg">
+                                            <input class="form-check-input" type="radio" name="mealType" id="vegOption" value="1">
                                             <label class="form-check-label" for="vegOption">Vegetarian</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="nonVegOption" value="non-veg">
+                                            <input class="form-check-input" type="radio" name="mealType" id="nonVegOption" value="2">
                                             <label class="form-check-label" for="nonVegOption">Non-Vegetarian</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="veganOption" value="vegan">
+                                            <input class="form-check-input" type="radio" name="mealType" id="veganOption" value="3">
                                             <label class="form-check-label" for="veganOption">Vegan</label>
                                         </div>
                                         <hr class="horizontal dark">
@@ -95,25 +96,25 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="calories" class="form-control-label">Calories</label>
-                                                    <input id="calories" class="form-control" type="text" value="">
+                                                    <input id="calories" class="form-control" type="number" value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="protein" class="form-control-label">Protein</label>
-                                                    <input id="protein" class="form-control" type="text" value="">
+                                                    <input id="protein" class="form-control" type="number" value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="fat" class="form-control-label">Fat</label>
-                                                    <input id="fat" class="form-control" type="text" value="">
+                                                    <input id="fat" class="form-control" type="number" value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="carbs" class="form-control-label">Carbs</label>
-                                                    <input id="carbs" class="form-control" type="text" value="">
+                                                    <input id="carbs" class="form-control" type="number" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -140,27 +141,27 @@
                                         <hr class="horizontal dark">
                                         <p class="text-uppercase text-sm">Food Type</p>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="breakfastOption" value="breakfast">
+                                            <input class="form-check-input" type="radio" name="mealCategory" id="breakfastOption" value="1">
                                             <label class="form-check-label" for="breakfastOption">Breakfast</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="lunchOption" value="lunch">
+                                            <input class="form-check-input" type="radio" name="mealCategory" id="lunchOption" value="2">
                                             <label class="form-check-label" for="lunchOption">Lunch</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="dinnerOption" value="dinner">
+                                            <input class="form-check-input" type="radio" name="mealCategory" id="dinnerOption" value="4">
                                             <label class="form-check-label" for="dinnerOption">Dinner</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="snackOption" value="snack">
+                                            <input class="form-check-input" type="radio" name="mealCategory" id="snackOption" value="3">
                                             <label class="form-check-label" for="snackOption">Snack</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="allOption" value="all">
+                                            <input class="form-check-input" type="radio" name="mealCategory" id="allOption" value="all">
                                             <label class="form-check-label" for="allOption">All</label>
                                         </div>
                                         <input type="button" name="next" class="next action-button" value="Next"/>
@@ -180,38 +181,44 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="eggs-milk" class="form-control-label">Egg, milk and Milk Products</label>
-                                                    <input class="form-control" id="eggs-milk" type="text" value="" placeholder="50g">
+                                                    <label for="eggs" class="form-control-label">Egg</label>
+                                                    <input class="form-control" id="eggs" type="number" value="" placeholder="50g">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="milk_milk_products" class="form-control-label">Milk and Milk Products</label>
+                                                    <input class="form-control" id="milk_milk_products" type="number" value="" placeholder="50g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="fats-oil" class="form-control-label">Fats and Oil</label>
-                                                    <input class="form-control" id="fats-oil" type="email" placeholder="5tb spoon">
+                                                    <input class="form-control" id="fats-oil" type="number" placeholder="5tb spoon">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="spices-herbs" class="form-control-label">Spices and Herbs</label>
-                                                    <input class="form-control" id="spices-herbs" type="text" value="" placeholder="10g">
+                                                    <input class="form-control" id="spices-herbs" type="number" value="" placeholder="10g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="veggies-fruits" class="form-control-label">Vegetables and Fruits</label>
-                                                    <input class="form-control" id="veggies-fruits" type="text" value="" placeholder="150g">
+                                                    <input class="form-control" id="veggies-fruits" type="number" value="" placeholder="150g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="cereals-pulses" class="form-control-label">Cereals and Pulses</label>
-                                                    <input class="form-control" id="cereals-pulses" type="text" value="" placeholder="100g">
+                                                    <input class="form-control" id="cereals-pulses" type="number" value="" placeholder="100g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="meat-seafood" class="form-control-label">Meat and SeaFood</label>
-                                                    <input class="form-control" id="meat-seafood" type="text" value="" placeholder="150g">
+                                                    <input class="form-control" id="meat-seafood" type="number" value="" placeholder="150g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -222,26 +229,25 @@
                                                             <small class="text-muted">White sugar, brown sugar, honey</small> <!-- Sub-label -->
                                                         </div>
                                                     </div>
-                                                    <input class="form-control" type="text" id="sugar-products" value="" placeholder="20g">
+                                                    <input class="form-control" type="number" id="sugar-products" value="" placeholder="20g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="dry-fruits" class="form-control-label">Dry Fruits</label>
-                                                    <input class="form-control" id="dry-fruits" type="text" value="" placeholder="150g">
+                                                    <input class="form-control" id="dry-fruits" type="number" value="" placeholder="150g">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="other-products" class="form-control-label">Other Products</label>
-                                                    <input class="form-control" id="other-products" type="text" value="" placeholder="150g">
+                                                    <input class="form-control" id="other-products" type="number" value="" placeholder="150g">
                                                 </div>
                                             </div>
                                         </div>
                                         <hr class="horizontal dark">
                                         <input type="button" name="next" class="next action-button" value="Next"/>
-                                        <input type="button" name="previous" class="previous action-button-previous"
-                                               value="Previous"/>
+                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                     </fieldset>
                                     <fieldset style="text-align: left;">
                                         <div class="form-card">
@@ -271,10 +277,8 @@
                                             <textarea class="form-control" id="food_suggestions" rows="5"></textarea>
                                         </div>
 
-                                        <input type="button" name="next" class="next action-button"
-                                               value="Submit"/> <input type="button" name="previous"
-                                                                       class="previous action-button-previous"
-                                                                       value="Previous"/>
+                                        <input type="submit" name="next" class="next action-button" value="Submit"/>
+                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-card">
@@ -303,7 +307,10 @@
                                                         Recipe</h5>
                                                 </div>
                                             </div>
+                                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            <!-- Add Previous button here -->
                                         </div>
+
                                     </fieldset>
                                 </form>
                             </div>
@@ -316,5 +323,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static "js/upload_recipe.js" %}"></script>
+    <script src="{% static "js/create_recipe.js" %}"></script>
 
 {% endblock %}
