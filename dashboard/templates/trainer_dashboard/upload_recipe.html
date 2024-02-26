@@ -71,7 +71,7 @@
 
                                         <p class="text-uppercase text-sm">Food Category</p>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealType" id="vegOption" value="1">
+                                            <input class="form-check-input" type="radio" name="mealType" id="vegOption" value="1" checked>
                                             <label class="form-check-label" for="vegOption">Vegetarian</label>
                                         </div>
 
@@ -91,30 +91,35 @@
                                                 <div class="form-group">
                                                     <label for="recipeName" class="form-label">Recipe Name:</label>
                                                     <input id="recipeName" class="form-control" type="text" value="">
+                                                    <div id="recipeNameError" class="text-danger" style="display: none;"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="calories" class="form-control-label">Calories</label>
                                                     <input id="calories" class="form-control" type="number" value="">
+                                                    <div id="caloriesError" class="text-danger" style="display: none;"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="protein" class="form-control-label">Protein</label>
                                                     <input id="protein" class="form-control" type="number" value="">
+                                                    <div id="proteinError" class="text-danger" style="display: none;"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="fat" class="form-control-label">Fat</label>
                                                     <input id="fat" class="form-control" type="number" value="">
+                                                    <div id="fatError" class="text-danger" style="display: none;"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="carbs" class="form-control-label">Carbs</label>
                                                     <input id="carbs" class="form-control" type="number" value="">
+                                                    <div id="carbsError" class="text-danger" style="display: none;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,10 +166,11 @@
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="mealCategory" id="allOption" value="all">
+                                            <input class="form-check-input" type="radio" name="mealCategory" id="allOption" value="all" checked>
                                             <label class="form-check-label" for="allOption">All</label>
                                         </div>
-                                        <input type="button" name="next" class="next action-button" value="Next"/>
+                                        <button type="button" name="next" id="nextButton" class="next action-button" onclick="nextStep()">Next
+                                        </button>
                                     </fieldset>
 
                                     <fieldset style="text-align: left;">
