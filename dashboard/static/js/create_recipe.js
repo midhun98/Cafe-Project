@@ -5,89 +5,45 @@ window.onload = function () {
 const nextButton = document.getElementById('nextButton');
 nextButton.setAttribute('disabled', 'disabled');
 
-function validateForm() {
-    let isValid = true;
-    const recipeName = document.getElementById('recipeName').value.trim();
-    const calories = document.getElementById('calories').value.trim();
-    const protein = document.getElementById('protein').value.trim();
-    const fat = document.getElementById('fat').value.trim();
-    const carbs = document.getElementById('carbs').value.trim();
-    if (!recipeName) {
-        document.getElementById('nextButton').setAttribute('disabled', 'disabled');
-        document.getElementById('recipeNameError').innerText = 'Recipe Name is required';
-        document.getElementById('recipeNameError').style.display = 'block';
-        isValid = false;
-    } else {
-        console.log('else recipeNameError')
-        document.getElementById('nextButton').removeAttribute('disabled');
-        document.getElementById('recipeNameError').style.display = 'none';
-    }
+function validateInput(inputId, errorId, errorMessage) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    const value = input.value.trim();
 
-    if (!calories) {
-        document.getElementById('nextButton').setAttribute('disabled', 'disabled');
-        document.getElementById('caloriesError').innerText = 'Calories is required';
-        document.getElementById('caloriesError').style.display = 'block';
-        isValid = false;
+    if (!value) {
+        nextButton.setAttribute('disabled', 'disabled');
+        error.innerText = errorMessage;
+        error.style.display = 'block';
+        return false;
     } else {
-        document.getElementById('nextButton').removeAttribute('disabled');
-        document.getElementById('caloriesError').style.display = 'none';
+        error.style.display = 'none';
+        return true;
     }
-
-    if (!protein) {
-        document.getElementById('nextButton').setAttribute('disabled', 'disabled');
-        document.getElementById('proteinError').innerText = 'Protein is required';
-        document.getElementById('proteinError').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('nextButton').removeAttribute('disabled');
-        document.getElementById('proteinError').style.display = 'none';
-    }
-
-    if (!fat) {
-        document.getElementById('nextButton').setAttribute('disabled', 'disabled');
-        document.getElementById('fatError').innerText = 'Fat is required';
-        document.getElementById('fatError').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('nextButton').removeAttribute('disabled');
-        document.getElementById('fatError').style.display = 'none';
-    }
-
-    if (!carbs) {
-        document.getElementById('nextButton').setAttribute('disabled', 'disabled');
-        document.getElementById('carbsError').innerText = 'Carbs is required';
-        document.getElementById('carbsError').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('nextButton').removeAttribute('disabled');
-        document.getElementById('carbsError').style.display = 'none';
-    }
-
-    return isValid;
 }
 
-document.getElementById('recipeName').addEventListener('input', validateForm);
-document.getElementById('calories').addEventListener('input', validateForm);
-document.getElementById('protein').addEventListener('input', validateForm);
-document.getElementById('fat').addEventListener('input', validateForm);
-document.getElementById('carbs').addEventListener('input', validateForm);
+function validateForm() {
+    const isValidRecipeName = validateInput('recipeName', 'recipeNameError', 'Recipe Name is required');
+    const isValidCalories = validateInput('calories', 'caloriesError', 'Calories is required');
+    const isValidProtein = validateInput('protein', 'proteinError', 'Protein is required');
+    const isValidFat = validateInput('fat', 'fatError', 'Fat is required');
+    const isValidCarbs = validateInput('carbs', 'carbsError', 'Carbs is required');
+
+    return isValidRecipeName && isValidCalories && isValidProtein && isValidFat && isValidCarbs;
+}
 
 function nextStep() {
     const isValid = validateForm();
-    console.log('isValid', isValid)
     if (isValid) {
-        console.log('Form is valid');
-        nextButton.removeAttribute('disabled'); // Enable button
+        nextButton.removeAttribute('disabled');
     } else {
-        console.log('Form contains errors');
         nextButton.setAttribute('disabled', 'disabled');
     }
 }
 
-// function initializeFormValidation() {
-//     validateForm();
-// }
-// document.addEventListener('DOMContentLoaded', initializeFormValidation);
+const inputs = ['recipeName', 'calories', 'protein', 'fat', 'carbs'];
+inputs.forEach(inputId => {
+    document.getElementById(inputId).addEventListener('input', nextStep);
+});
 
 $(document).ready(function () {
     $("#msform").submit(function (event) {
