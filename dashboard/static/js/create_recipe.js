@@ -3,22 +3,7 @@ window.onload = function () {
 };
 
 const nextButton = document.getElementById('nextButton');
-
-function checkFields() {
-    var recipeName = document.getElementById('recipeName').value;
-    var calories = document.getElementById('calories').value;
-    var protein = document.getElementById('protein').value;
-    var fat = document.getElementById('fat').value;
-    var carbs = document.getElementById('carbs').value;
-
-    if (recipeName !== '' && calories !== '' && protein !== '' && fat !== '' && carbs !== '') {
-        document.getElementById('nextButton').removeAttribute('disabled');
-    } else {
-        document.getElementById('nextButton').setAttribute('disabled', 'disabled');
-    }
-}
-
-// Add event listeners to all input fields
+nextButton.setAttribute('disabled', 'disabled');
 
 function validateForm() {
     let isValid = true;
@@ -99,6 +84,10 @@ function nextStep() {
     }
 }
 
+// function initializeFormValidation() {
+//     validateForm();
+// }
+// document.addEventListener('DOMContentLoaded', initializeFormValidation);
 
 $(document).ready(function () {
     $("#msform").submit(function (event) {
