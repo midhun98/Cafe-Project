@@ -20,7 +20,7 @@ class FoodViewSet(viewsets.ModelViewSet):
         protein = request.data.get('protein')
         fat = request.data.get('fat')
         carbs = request.data.get('carbs')
-        print(request.user.id)
+        food_url = request.data.get('food_url')
         food = Food.objects.create(
             user=request.user,
             recipe_name=recipe_name,
@@ -28,6 +28,7 @@ class FoodViewSet(viewsets.ModelViewSet):
             protein=protein,
             fat=fat,
             carbs=carbs,
+            food_url=food_url,
             # Add other fields here
         )
 
