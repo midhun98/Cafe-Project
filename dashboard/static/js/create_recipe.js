@@ -5,7 +5,7 @@ window.onload = function () {
 const nextButton = document.getElementById('nextButton');
 nextButton.setAttribute('disabled', 'disabled');
 
-function validateInput(inputId, errorId, errorMessage) {
+function validateInput(inputId, errorId, errorMessage, maxDigits = Infinity, maxDecimals = Infinity) {
     const input = document.getElementById(inputId);
     const error = document.getElementById(errorId);
     const value = input.value.trim();
@@ -16,6 +16,15 @@ function validateInput(inputId, errorId, errorMessage) {
         error.style.display = 'block';
         return false;
     } else {
+        if (inputId !== 'recipeName') {
+            const regex = new RegExp(`^\\d{1,${maxDigits}}(?:\\.\\d{0,${maxDecimals}})?$`);
+            if (!regex.test(value)) {
+                nextButton.setAttribute('disabled', 'disabled');
+                error.innerText = `Value should have a maximum of ${maxDigits} digits and ${maxDecimals} decimals`;
+                error.style.display = 'block';
+                return false;
+            }
+        }
         error.style.display = 'none';
         return true;
     }
@@ -23,10 +32,10 @@ function validateInput(inputId, errorId, errorMessage) {
 
 function validateForm() {
     const isValidRecipeName = validateInput('recipeName', 'recipeNameError', 'Recipe Name is required');
-    const isValidCalories = validateInput('calories', 'caloriesError', 'Calories is required');
-    const isValidProtein = validateInput('protein', 'proteinError', 'Protein is required');
-    const isValidFat = validateInput('fat', 'fatError', 'Fat is required');
-    const isValidCarbs = validateInput('carbs', 'carbsError', 'Carbs is required');
+    const isValidCalories = validateInput('calories', 'caloriesError', 'Calories is required', 3, 2);
+    const isValidProtein = validateInput('protein', 'proteinError', 'Protein is required', 3, 2);
+    const isValidFat = validateInput('fat', 'fatError', 'Fat is required', 3, 2);
+    const isValidCarbs = validateInput('carbs', 'carbsError', 'Carbs is required', 3, 2);
 
     return isValidRecipeName && isValidCalories && isValidProtein && isValidFat && isValidCarbs;
 }
@@ -139,3 +148,38 @@ function displayError(inputElement, errorMessage) {
     inputElement.addClass("input-error");
     inputElement.after(errorElement);
 }
+
+const finalSubmitButton = document.getElementById('finalSubmitButton');
+finalSubmitButton.setAttribute('disabled', 'disabled');
+
+function validateURL(urlInput) {
+    var urlPattern = /^(http|https):\/\/[^ "]+$/;
+    var urlIsValid = urlPattern.test(urlInput);
+    var errorElement = document.getElementById('url-error');
+
+    if (!urlIsValid) {
+        errorElement.style.display = 'block';
+        return false;
+    } else {
+        errorElement.style.display = 'none';
+        return true;
+    }
+}
+
+function finalSubmit() {
+    var urlInput = document.getElementById('food_url').value;
+    var isValid = validateURL(urlInput);
+
+    if (isValid) {
+        finalSubmitButton.removeAttribute('disabled');
+        // Proceed with form submission or other actions
+        console.log('URL is valid');
+    } else {
+        finalSubmitButton.setAttribute('disabled', 'disabled');
+        console.log('URL is not valid');
+        // Optionally prevent form submission or perform other actions
+    }
+}
+
+document.getElementById('food_url').addEventListener('input', finalSubmit);
+

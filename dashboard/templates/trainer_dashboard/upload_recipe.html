@@ -280,8 +280,9 @@
                                         <hr class="horizontal dark">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label for="food_url" class="text-sm">Food URL</label>
+                                                <label for="food_url" class="text-sm">Food URL <span class="text-danger">*</span></label>
                                                 <input id="food_url" class="form-control" type="text" value="">
+                                                <div id="url-error" class="text-danger" style="display: none;">Please enter a valid URL.</div>
                                             </div>
                                         </div>
                                         <hr class="horizontal dark">
@@ -289,8 +290,7 @@
                                             <label for="food_suggestions" class="text-sm">Food Suggestions</label>
                                             <textarea class="form-control" id="food_suggestions" rows="5"></textarea>
                                         </div>
-
-                                        <input type="submit" name="next" class="next action-button" value="Submit"/>
+                                        <button type="submit" name="next" id="finalSubmitButton" class="next action-button" onclick="finalSubmit()">Submit</button>
                                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                     </fieldset>
                                     <fieldset>

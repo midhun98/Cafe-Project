@@ -41,5 +41,4 @@ class FoodViewSet(viewsets.ModelViewSet):
         for image_data in plated_dish_images_data:
             PlatedDishImage.objects.create(food=food, image=image_data)
 
-
         return Response({'success': True}, status=status.HTTP_201_CREATED)
