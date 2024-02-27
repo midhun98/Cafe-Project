@@ -153,7 +153,7 @@ const finalSubmitButton = document.getElementById('finalSubmitButton');
 finalSubmitButton.setAttribute('disabled', 'disabled');
 
 function validateURL(urlInput) {
-    var urlPattern = /^(http|https):\/\/[^ "]+$/;
+    var urlPattern = /^(https):\/\/[^ "]+$/;
     var urlIsValid = urlPattern.test(urlInput);
     var errorElement = document.getElementById('url-error');
 
