@@ -148,3 +148,38 @@ function displayError(inputElement, errorMessage) {
     inputElement.addClass("input-error");
     inputElement.after(errorElement);
 }
+
+const finalSubmitButton = document.getElementById('finalSubmitButton');
+finalSubmitButton.setAttribute('disabled', 'disabled');
+
+function validateURL(urlInput) {
+    var urlPattern = /^(http|https):\/\/[^ "]+$/;
+    var urlIsValid = urlPattern.test(urlInput);
+    var errorElement = document.getElementById('url-error');
+
+    if (!urlIsValid) {
+        errorElement.style.display = 'block';
+        return false;
+    } else {
+        errorElement.style.display = 'none';
+        return true;
+    }
+}
+
+function finalSubmit() {
+    var urlInput = document.getElementById('food_url').value;
+    var isValid = validateURL(urlInput);
+
+    if (isValid) {
+        finalSubmitButton.removeAttribute('disabled');
+        // Proceed with form submission or other actions
+        console.log('URL is valid');
+    } else {
+        finalSubmitButton.setAttribute('disabled', 'disabled');
+        console.log('URL is not valid');
+        // Optionally prevent form submission or perform other actions
+    }
+}
+
+document.getElementById('food_url').addEventListener('input', finalSubmit);
+
