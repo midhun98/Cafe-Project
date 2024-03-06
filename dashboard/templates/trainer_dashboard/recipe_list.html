@@ -4,6 +4,47 @@
     <title>
         Uploaded Recipies
     </title>
+    <style>
+        .dataTables_paginate .paginate_button {
+            border: 1px solid transparent;
+            float: left;
+            margin-left: 2px;
+            padding: 5px 10px; /* Adjusted padding */
+            position: relative;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+            background-color: #f5f5f5; /* Background color */
+            text-align: center; /* Center align text */
+            font-weight: normal; /* Adjust font weight if needed */
+            font-size: 14px; /* Adjust font size if needed */
+        }
+
+        .dataTables_paginate .paginate_button:hover {
+            background-color: #e0e0e0; /* Hover background color */
+            color: #000; /* Hover text color */
+        }
+
+        .dataTables_paginate .paginate_button.current {
+            background-color: #007bff; /* Current page background color */
+            color: #fff; /* Current page text color */
+        }
+
+        .dataTables_info {
+            margin-left: 20px; /* Adjust the margin-right value as needed */
+
+        }
+
+        .dataTables_paginate {
+            margin-left: 20px; /* Adjust the margin-right value as needed */
+            margin-top: 10px; /* Adjust the margin-right value as needed */
+            margin-bottom: 10px; /* Adjust the margin-right value as needed */
+        }
+
+        .dataTables_length {
+            margin-left: 20px;
+        }
+    </style>
     <nav aria-label="breadcrumb mt-4" class="ms-4">
         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white">Pages</a></li>
@@ -20,106 +61,19 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Dish Name
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Type
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Recipe
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Modify
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="https://img.icons8.com/papercut/60/pizza.png" class="avatar avatar-sm me-3"
-                                                     alt="user1">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Pizza</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">BreakFast</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="badge badge-sm bg-gradient-success">Link</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="" class="text-secondary font-weight-bold text-xs"
-                                           data-toggle="tooltip" data-original-title="Edit user">
-                                            Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="https://img.icons8.com/keek/100/experimental-hamburger-keek.png" class="avatar avatar-sm me-3"
-                                                     alt="user2">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Burger</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">Lunch</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="badge badge-sm bg-gradient-success">Link</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="" class="text-secondary font-weight-bold text-xs"
-                                           data-toggle="tooltip" data-original-title="Edit user">
-                                            Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/external-salad-healthy-food-wanicon-flat-wanicon.png" class="avatar avatar-sm me-3"
-                                                     alt="user3">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Salad</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">Dinner</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="badge badge-sm bg-gradient-success">Link</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="" class="text-secondary font-weight-bold text-xs"
-                                           data-toggle="tooltip" data-original-title="Edit user">
-                                            Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <table id="uploaded-recipe-table" class="table dt-responsive nowrap" style="width:100%"></table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="table-responsive">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css">
+    <script src="{% static "js/trainer_dashboard/recipe_list.js" %}"></script>
 
 {% endblock %}
