@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.http import JsonResponse
 from django.shortcuts import render
+from rest_framework import pagination
 
 User = get_user_model()
 
@@ -66,3 +67,9 @@ def otplesssignup(request):
 def logout_api(request):
     logout(request)
     return render(request, 'signin.html')
+
+
+class CustomPageNumberPagination(pagination.PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100

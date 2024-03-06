@@ -4,6 +4,9 @@ from trainer.models import (Food,
                             PlatedDishImage)
 from .serializers import FoodSerializer
 from rest_framework.response import Response
+from core.views import CustomPageNumberPagination
+from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
@@ -11,6 +14,8 @@ from rest_framework.response import Response
 class FoodViewSet(viewsets.ModelViewSet):
     queryset = Food.objects.all().order_by('id')
     serializer_class = FoodSerializer
+    pagination_class = CustomPageNumberPagination
+    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         print(request.data)
@@ -43,3 +48,12 @@ class FoodViewSet(viewsets.ModelViewSet):
             PlatedDishImage.objects.create(food=food, image=image_data)
 
         return Response({'success': True}, status=status.HTTP_201_CREATED)
+
+    @action(detail=False, methods=['get'])
+    def my_foods(self, request):
+        # need to add the access policy in future prevent unauthorized access
+        user_id = request.user.id
+        foods = Food.objects.filter(user=user_id)
+        page = self.paginate_queryset(foods)
+        serializer = self.get_serializer(page, many=True)
+        return self.get_paginated_response(serializer.data)

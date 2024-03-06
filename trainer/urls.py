@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 
 router = DefaultRouter()
 
-router.register('foods', views.FoodViewSet)
+router.register('foods', views.FoodViewSet, basename='food')
 urlpatterns = [
     path('api/', include(router.urls)),
 ]
